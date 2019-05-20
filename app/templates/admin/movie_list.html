@@ -3,10 +3,10 @@
 {% block content %}
 <!--内容-->
 <section class="content-header">
-    <h1>微电影管理系统</h1>
+    <h1>TED+管理系统</h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> 电影管理</a></li>
-        <li class="active">电影列表</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> 视频管理</a></li>
+        <li class="active">视频列表</li>
     </ol>
 </section>
 <section class="content" id="showcontent">
@@ -14,63 +14,51 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">电影列表</h3>
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right"
-                                   placeholder="请输入关键字...">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="box-title">视频列表</h3>
                 </div>
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+                            {% with msgs = get_flashed_messages(category_filter=['ok']) %}
+                                {% if msgs %}
+                                    <div class="alert alert-success alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-check"></i> 成功!</h4>
+                                        {% for msg in msgs %}
+                                            <p>{{ msg }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+
+                            {% with msgs = get_flashed_messages(category_filter=['err']) %}
+                                {% if msgs %}
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-ban"></i> 失败!</h4>
+                                        {% for msg in msgs %}
+                                            <p>{{ msg }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+
+                    <table class="table table-hover" style="border-spacing: 100px 0px; border-collapse: separate">
                         <tbody>
                         <tr>
-                            <th>编号</th>
                             <th>片名</th>
-                            <th>片长</th>
-                            <th>标签</th>
-                            <th>地区</th>
-                            <th>星级</th>
-                            <th>播放数量</th>
-                            <th>评论数量</th>
-                            <th>上映时间</th>
+                            <th>演讲者</th>
                             <th>操作事项</th>
                         </tr>
+                        {% for v in data %}
                         <tr>
-                            <td>1</td>
-                            <td>环太平洋</td>
-                            <td>5分钟</td>
-                            <td>科幻</td>
-                            <td>美国</td>
-                            <td>5</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>2017-01-01</td>
+                            <td>{{ v.title }}</td>
+                            <td>{{ v.speaker }}</td>
                             <td>
-                                <a class="label label-success">编辑</a>
-                                &nbsp;
-                                <a class="label label-danger">删除</a>
+                                <a href="{{url_for('admin.movie_del', title=v.title)}}" class="label label-danger">删除</a>
                             </td>
                         </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
-                </div>
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm no-margin pull-right">
-                        <li><a href="#">首页</a></li>
-                        <li><a href="#">上一页</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">下一页</a></li>
-                        <li><a href="#">尾页</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

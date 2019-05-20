@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>微电影管理系统</title>
+    <title>TED+管理系统</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shortcut icon" href="{{ url_for('static', filename='base/images/logo.png')}}">
     <link rel="stylesheet" href=" {{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}">
@@ -26,9 +26,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <header class="main-header">
-        <a href="index.html" class="logo">
+        <a class="logo">
             <span class="logo-mini"><img src="{{url_for('static', filename='base/images/logo.png')}}" style="height:40px;width:40px;">电影系统</span>
-            <span class="logo-lg"><img src="{{url_for('static', filename='base/images/logo.png')}}" style="height:40px;width:40px;">微电影管理系统</span>
+            <span class="logo-lg"><img src="{{url_for('static', filename='base/images/logo.png')}}" style="height:40px;width:40px;">TED+管理系统</span>
         </a>
         <nav class="navbar navbar-static-top">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -38,7 +38,7 @@
                 <ul class="nav navbar-nav">
                     <li class="user-footer">
                         <div class="pull-right">
-                            <a href="{{url_for('admin.login')}}" class="btn btn-default btn-flat">退出系统</a>
+                            <a href="{{url_for('home.index')}}" class="btn btn-default btn-flat">退出系统</a>
                         </div>
                     </li>
                 </ul>
@@ -53,7 +53,7 @@
                          alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>用户xxx</p>
+                    <p>管理员</p>
                 </div>
             </div>
             {% include "admin/grid.html" %}
@@ -68,7 +68,7 @@
         <div class="pull-right hidden-xs">
             <b>版本</b> 1.0
         </div>
-        <strong>版权 &copy; 2017-2018 归<a href="">xxx</a>.</strong> 所有
+        <strong>版权 &copy; 2017-2018 归<a href='https://github.com/JuliRao/VoD'>马娆</a>.</strong> 所有
     </footer>
     <div class="control-sidebar-bg"></div>
 </div>

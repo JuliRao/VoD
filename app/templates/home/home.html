@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
-    <title>微电影</title>
+    <title>TED+</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='base/images/logo.png')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='base/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='base/css/bootstrap-movie.css')}}">
@@ -38,35 +38,15 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="{{ url_for('home.index')}}" class="navbar-brand" style="width:250px;">
-                <img src="{{ url_for('static', filename='base/images/logo.png')}}" style="height:30px;">&nbsp;微电影
+                <img src="{{ url_for('static', filename='base/images/logo.png')}}" style="height:30px;">&nbsp;TED+
             </a>
         </div>
         <!--小屏幕导航按钮和logo-->
         <!--导航-->
         <div class="navbar-collapse collapse">
-            <form class="navbar-form navbar-left" role="search" style="margin-top:18px;">
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" placeholder="请输入电影名！">
-                    <span class="input-group-btn">
-                        <a class="btn btn-default" href="search.html"><span class="glyphicon glyphicon-search"></span>&nbsp;搜索</a>
-                    </span>
-                </div>
-            </form>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="curlink" href="index.html"><span class="glyphicon glyphicon-film"></span>&nbsp;电影</a>
-                </li>
-                <li>
-                    <a class="curlink" href="login.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a>
-                </li>
-                <li>
-                    <a class="curlink" href="register.html"><span class="glyphicon glyphicon-plus"></span>&nbsp;注册</a>
-                </li>
-                <li>
-                    <a class="curlink" href="logout.html"><span class="glyphicon glyphicon-log-out"></span>&nbsp;退出</a>
-                </li>
-                <li>
-                    <a class="curlink" href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;会员</a>
+                    <a class="curlink" href="admin/login"><span class="glyphicon glyphicon glyphicon-user"></span>&nbsp;管理员登录</a>
                 </li>
             </ul>
         </div>
